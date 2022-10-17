@@ -15,8 +15,7 @@ namespace DB_Project_C969
     public partial class AddCustomerForm : Form
     {
         
-        // TODO work on validation for add customer form 
-        // TODO addressId and customerId should be the same, need to fix
+        
         public AddCustomerForm()
         {
 

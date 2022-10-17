@@ -70,14 +70,17 @@ namespace DB_Project_C969
             view.Show();
 		}
 
-		private void Dashboard_Load(object sender, EventArgs e)
-		{
-          
-		}
-
-		private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+		
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
 		{
             Application.Exit();
+		}
+
+		private void generateReportToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Forms.Reports reports = new Forms.Reports();
+            this.Hide();
+            reports.Show();
 		}
 	}
 }

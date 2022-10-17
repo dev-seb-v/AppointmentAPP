@@ -142,11 +142,6 @@ namespace DB_Project_C969.Forms
 			Monthly_Appointment();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			//DateTime d = new DateTime();
-
-		}
 
 		private void allRB_CheckedChanged(object sender, EventArgs e)
 		{

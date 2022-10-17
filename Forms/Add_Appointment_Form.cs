@@ -144,25 +144,7 @@ namespace DB_Project_C969
 
 		
         // VALIDATION SECTION
-        private bool CheckDate()
-        {
-            DateTime s = start.Value;
-            DateTime today = DateTime.Today;
-            int result = DateTime.Compare(s, today);
-            if (result < 0)
-            {
-                return true;
-            }
-            else if (result == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-
-		}
+       
 
         private bool outsideBusinessHrs()
         {
@@ -204,12 +186,7 @@ namespace DB_Project_C969
                     typeTextBox.Focus();
                     return;
                 }
-                if (CheckDate() == true)
-                {
-                    MessageBox.Show("Date Cannot Be in the Past");
-                    start.Focus();
-                    return;
-                }
+               
                 if (outsideBusinessHrs() == false)
                 {
                     MessageBox.Show("Appointments cannot be made outside of business hours");

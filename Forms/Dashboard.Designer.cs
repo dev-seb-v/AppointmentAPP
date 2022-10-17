@@ -78,13 +78,14 @@ namespace DB_Project_C969
 			// generateReportToolStripMenuItem
 			// 
 			this.generateReportToolStripMenuItem.Name = "generateReportToolStripMenuItem";
-			this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+			this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.generateReportToolStripMenuItem.Text = "Generate Report";
+			this.generateReportToolStripMenuItem.Click += new System.EventHandler(this.generateReportToolStripMenuItem_Click);
 			// 
 			// exityToolStripMenuItem
 			// 
 			this.exityToolStripMenuItem.Name = "exityToolStripMenuItem";
-			this.exityToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+			this.exityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exityToolStripMenuItem.Text = "Exit";
 			// 
 			// addToolStripMenuItem
@@ -168,7 +169,7 @@ namespace DB_Project_C969
 			// appointmentsToolStripMenuItem
 			// 
 			this.appointmentsToolStripMenuItem.Name = "appointmentsToolStripMenuItem";
-			this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.appointmentsToolStripMenuItem.Text = "Appointments";
 			this.appointmentsToolStripMenuItem.Click += new System.EventHandler(this.appointmentsToolStripMenuItem_Click);
 			// 
@@ -203,7 +204,6 @@ namespace DB_Project_C969
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "-- DASHBOARD --";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
-			this.Load += new System.EventHandler(this.Dashboard_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
