@@ -78,9 +78,21 @@ namespace DB_Project_C969
 
 		private void generateReportToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-            Forms.Reports reports = new Forms.Reports();
+           
+		}
+
+		private void appointmentTypesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Forms.AppointmentTypesForms typesForms = new Forms.AppointmentTypesForms();
+            this.Hide();
+            typesForms.Show();
+        }
+
+		private void userSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Forms.UserScheduleForm reports = new Forms.UserScheduleForm();
             this.Hide();
             reports.Show();
-		}
+        }
 	}
 }

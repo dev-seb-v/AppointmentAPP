@@ -115,6 +115,12 @@
       <DependentUpon>Add_Appointment_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Customer.cs" />
+    <Compile Include="Forms\AppointmentTypesForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentTypesForms.Designer.cs">
+      <DependentUpon>AppointmentTypesForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AppointmentUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,11 +164,11 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
-    <Compile Include="Forms\Reports.cs">
+    <Compile Include="Forms\UserScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Reports.Designer.cs">
-      <DependentUpon>Reports.cs</DependentUpon>
+    <Compile Include="Forms\UserScheduleForm.Designer.cs">
+      <DependentUpon>UserScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ViewAppointmentForm.cs">
       <SubType>Form</SubType>
@@ -186,6 +192,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Add_Appointment_Form.resx">
       <DependentUpon>Add_Appointment_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentTypesForms.resx">
+      <DependentUpon>AppointmentTypesForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AppointmentUpdate.resx">
       <DependentUpon>AppointmentUpdate.cs</DependentUpon>
@@ -211,8 +220,8 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports.resx">
-      <DependentUpon>Reports.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UserScheduleForm.resx">
+      <DependentUpon>UserScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateSubForm.resx">
       <DependentUpon>UpdateSubForm.cs</DependentUpon>

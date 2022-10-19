@@ -32,7 +32,6 @@ namespace DB_Project_C969
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.generateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +46,9 @@ namespace DB_Project_C969
 			this.appointmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reportMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+			this.appointmentTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.userSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -59,6 +61,7 @@ namespace DB_Project_C969
             this.updateToolStripMenuItem,
             this.deleteToolStripMenuItem,
             this.viewMenuStrip,
+            this.reportMenuStrip,
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
@@ -69,18 +72,10 @@ namespace DB_Project_C969
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generateReportToolStripMenuItem,
             this.exityToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
 			this.fileToolStripMenuItem.Text = "File";
-			// 
-			// generateReportToolStripMenuItem
-			// 
-			this.generateReportToolStripMenuItem.Name = "generateReportToolStripMenuItem";
-			this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.generateReportToolStripMenuItem.Text = "Generate Report";
-			this.generateReportToolStripMenuItem.Click += new System.EventHandler(this.generateReportToolStripMenuItem_Click);
 			// 
 			// exityToolStripMenuItem
 			// 
@@ -100,14 +95,14 @@ namespace DB_Project_C969
 			// customerToolStripMenuItem
 			// 
 			this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-			this.customerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.customerToolStripMenuItem.Text = "Customer";
 			this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
 			// 
 			// appointmentToolStripMenuItem
 			// 
 			this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
-			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.appointmentToolStripMenuItem.Text = "Appointment";
 			this.appointmentToolStripMenuItem.Click += new System.EventHandler(this.appointmentToolStripMenuItem_Click);
 			// 
@@ -169,7 +164,7 @@ namespace DB_Project_C969
 			// appointmentsToolStripMenuItem
 			// 
 			this.appointmentsToolStripMenuItem.Name = "appointmentsToolStripMenuItem";
-			this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
 			this.appointmentsToolStripMenuItem.Text = "Appointments";
 			this.appointmentsToolStripMenuItem.Click += new System.EventHandler(this.appointmentsToolStripMenuItem_Click);
 			// 
@@ -186,6 +181,29 @@ namespace DB_Project_C969
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
 			this.aboutToolStripMenuItem.Text = "About";
+			// 
+			// reportMenuStrip
+			// 
+			this.reportMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.appointmentTypesToolStripMenuItem,
+            this.userSchedulesToolStripMenuItem});
+			this.reportMenuStrip.Name = "reportMenuStrip";
+			this.reportMenuStrip.Size = new System.Drawing.Size(66, 21);
+			this.reportMenuStrip.Text = "Reports";
+			// 
+			// appointmentTypesToolStripMenuItem
+			// 
+			this.appointmentTypesToolStripMenuItem.Name = "appointmentTypesToolStripMenuItem";
+			this.appointmentTypesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+			this.appointmentTypesToolStripMenuItem.Text = "Appointment Types";
+			this.appointmentTypesToolStripMenuItem.Click += new System.EventHandler(this.appointmentTypesToolStripMenuItem_Click);
+			// 
+			// userSchedulesToolStripMenuItem
+			// 
+			this.userSchedulesToolStripMenuItem.Name = "userSchedulesToolStripMenuItem";
+			this.userSchedulesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+			this.userSchedulesToolStripMenuItem.Text = "User Schedules";
+			this.userSchedulesToolStripMenuItem.Click += new System.EventHandler(this.userSchedulesToolStripMenuItem_Click);
 			// 
 			// Dashboard
 			// 
@@ -215,7 +233,6 @@ namespace DB_Project_C969
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generateReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
@@ -230,6 +247,9 @@ namespace DB_Project_C969
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem appointmentsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem reportMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem appointmentTypesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem userSchedulesToolStripMenuItem;
 	}
 }
 
