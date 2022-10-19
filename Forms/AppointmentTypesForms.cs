@@ -18,6 +18,13 @@ namespace DB_Project_C969.Forms
 			InitializeComponent();
 
 		}
+		private void AppointmentTypesForms_Load(object sender, EventArgs e)
+		{
+			appointmentBox.DisplayMember = "type";
+			appointmentBox.DataSource = TypeHelper();
+			reportButton.Enabled = false;
+			monthTxtBox.Clear();
+		}
 		// method to return type by month
 		private List<string> AppointmentsByType(string type, int month)
 		{
@@ -28,8 +35,8 @@ namespace DB_Project_C969.Forms
 
 			cmd.Parameters.AddWithValue("@type", type);
 			cmd.Parameters.AddWithValue("@month", month);
-			
-		    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+			MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
 			connect.Open();
 			MySqlDataReader reader = cmd.ExecuteReader();
@@ -44,10 +51,6 @@ namespace DB_Project_C969.Forms
 		}
 
 
-		private string joinList(List<string> list)
-		{
-			return String.Join(" ", list);
-		}
 		private int typeCounter(List<string> list, string type)
 		{
 			int j = 0;
@@ -66,12 +69,42 @@ namespace DB_Project_C969.Forms
 
 		private void reportButton_Click(object sender, EventArgs e)
 		{
-			List<string> s = AppointmentsByType("test", 10);
-			reportText.Text = String.Join(Environment.NewLine, s);
-			int counter;
-			counter = typeCounter(s, "test");
-			reportText.Text = counter.ToString();
-			
+			//List<string> s = AppointmentsByType("test", 10);
+			//reportText.Text = String.Join(Environment.NewLine, s);
+			//int counter;
+			//counter = typeCounter(s, "test");
+			//reportText.Text = "Test meetings in October: " + " " + counter.ToString();
+
+
+			List<string> s = AppointmentsByType(appointmentBox.Text, Int32.Parse(monthTxtBox.Text));
+			string t = getType(appointmentBox.Text);
+			int counter = typeCounter(s, t);
+
+
+			reportText.Text = $"{t} meetings for this month: " + " " + counter.ToString();
+
+
+		}
+
+		private string getType(string type)
+		{
+			string value;
+			MySqlConnection connect = new MySqlConnection(SQL.C_String);
+			try
+			{
+
+				string select = "SELECT type FROM appointment WHERE type = @type";
+				MySqlCommand cmd = new MySqlCommand(select, connect);
+				cmd.Parameters.AddWithValue("@type", type);
+				connect.Open();
+				value = (string)cmd.ExecuteScalar();
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return value;
 		}
 
 		private DataTable TypeHelper()
@@ -98,10 +131,29 @@ namespace DB_Project_C969.Forms
 			return dt;
 		}
 
-		private void AppointmentTypesForms_Load(object sender, EventArgs e)
+		private bool ValidateTxtBox()
 		{
-			appointmentBox.DisplayMember = "type";
-			appointmentBox.DataSource = TypeHelper();
+			return !String.IsNullOrWhiteSpace(monthTxtBox.Text)
+				&&
+			Int32.TryParse(monthTxtBox.Text, out int a);
+		}
+
+		private void monthTxtBox_TextChanged(object sender, EventArgs e)
+		{
+			if (String.IsNullOrWhiteSpace(monthTxtBox.Text) || !Int32.TryParse(monthTxtBox.Text, out int a)
+				|| Int32.Parse(monthTxtBox.Text) < 0 || Int32.Parse(monthTxtBox.Text) > 12
+				)
+			{
+
+				monthTxtBox.Focus();
+				monthTxtBox.Clear();
+				MessageBox.Show("Please Enter a Number 1-12 (corresponding to the months of the year)");
+				
+			}
+			else
+			{
+				reportButton.Enabled = ValidateTxtBox();
+			}
 		}
 	}
 }
