@@ -173,7 +173,7 @@ namespace DB_Project_C969
                 connect.Open();
                 value = (int)cmd.ExecuteScalar();
             }
-            catch (Exception)
+            catch (MySqlException)
             {
 
                 throw;
@@ -220,6 +220,28 @@ namespace DB_Project_C969
                 throw;
             }
             return value;
+        }
+
+        public static string getUserName(int userid)
+        {
+            string value;
+            MySqlConnection connect = new MySqlConnection(SQL.C_String);
+            try
+            {
+
+                string select = "SELECT username from user WHERE userId = @uid";
+                MySqlCommand cmd = new MySqlCommand(select, connect);
+                cmd.Parameters.AddWithValue("@uid", userid);
+                connect.Open();
+                value = (string)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return value;
+
         }
     }
 

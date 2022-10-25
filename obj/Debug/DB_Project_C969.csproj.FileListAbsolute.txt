@@ -188,6 +188,7 @@ C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.exe
 C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.pdb
 C:\Users\LabUser\Desktop\AppointmentAPP\bin\Debug\DB_Project_C969.pdb
 C:\Users\LabUser\Desktop\AppointmentAPP\bin\Debug\es-ES\DB_Project_C969.resources.dll
-C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.csproj.AssemblyReference.cache
 C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.Forms.UserScheduleForm.resources
 C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.Forms.AppointmentTypesForms.resources
+C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.Forms.ExtraReport.resources
+C:\Users\LabUser\Desktop\AppointmentAPP\obj\Debug\DB_Project_C969.csproj.AssemblyReference.cache

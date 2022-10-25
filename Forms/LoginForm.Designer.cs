@@ -42,13 +42,13 @@ namespace DB_Project_C969
 			// 
 			// panel1
 			// 
-			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Controls.Add(this.button2);
 			this.panel1.Controls.Add(this.submitButton);
 			this.panel1.Controls.Add(this.passwordTextBox);
 			this.panel1.Controls.Add(this.usernameTextBox);
 			this.panel1.Controls.Add(this.passwordLabel);
 			this.panel1.Controls.Add(this.usernameLabel);
+			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Name = "panel1";
 			// 
 			// button2
@@ -108,5 +108,5 @@ namespace DB_Project_C969
 		private System.Windows.Forms.TextBox usernameTextBox;
 		private System.Windows.Forms.Label passwordLabel;
 		private System.Windows.Forms.Label usernameLabel;
-    }
+	}
 }

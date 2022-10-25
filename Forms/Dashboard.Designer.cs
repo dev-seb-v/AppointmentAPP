@@ -44,11 +44,12 @@ namespace DB_Project_C969
 			this.appointmentToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
 			this.appointmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
 			this.appointmentTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.userSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.customerInfo = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -80,7 +81,7 @@ namespace DB_Project_C969
 			// exityToolStripMenuItem
 			// 
 			this.exityToolStripMenuItem.Name = "exityToolStripMenuItem";
-			this.exityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exityToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.exityToolStripMenuItem.Text = "Exit";
 			// 
 			// addToolStripMenuItem
@@ -95,14 +96,14 @@ namespace DB_Project_C969
 			// customerToolStripMenuItem
 			// 
 			this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-			this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.customerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.customerToolStripMenuItem.Text = "Customer";
 			this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
 			// 
 			// appointmentToolStripMenuItem
 			// 
 			this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
-			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.appointmentToolStripMenuItem.Text = "Appointment";
 			this.appointmentToolStripMenuItem.Click += new System.EventHandler(this.appointmentToolStripMenuItem_Click);
 			// 
@@ -168,25 +169,12 @@ namespace DB_Project_C969
 			this.appointmentsToolStripMenuItem.Text = "Appointments";
 			this.appointmentsToolStripMenuItem.Click += new System.EventHandler(this.appointmentsToolStripMenuItem_Click);
 			// 
-			// helpToolStripMenuItem
-			// 
-			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
-			this.helpToolStripMenuItem.Text = "Help";
-			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-			this.aboutToolStripMenuItem.Text = "About";
-			// 
 			// reportMenuStrip
 			// 
 			this.reportMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.appointmentTypesToolStripMenuItem,
-            this.userSchedulesToolStripMenuItem});
+            this.userSchedulesToolStripMenuItem,
+            this.customerInfo});
 			this.reportMenuStrip.Name = "reportMenuStrip";
 			this.reportMenuStrip.Size = new System.Drawing.Size(66, 21);
 			this.reportMenuStrip.Text = "Reports";
@@ -204,6 +192,27 @@ namespace DB_Project_C969
 			this.userSchedulesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
 			this.userSchedulesToolStripMenuItem.Text = "User Schedules";
 			this.userSchedulesToolStripMenuItem.Click += new System.EventHandler(this.userSchedulesToolStripMenuItem_Click);
+			// 
+			// customerInfo
+			// 
+			this.customerInfo.Name = "customerInfo";
+			this.customerInfo.Size = new System.Drawing.Size(188, 22);
+			this.customerInfo.Text = "Customer Info";
+			this.customerInfo.Click += new System.EventHandler(this.customerCountryToolStripMenuItem_Click);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+			this.helpToolStripMenuItem.Text = "Help";
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+			this.aboutToolStripMenuItem.Text = "About";
 			// 
 			// Dashboard
 			// 
@@ -250,6 +259,7 @@ namespace DB_Project_C969
 		private System.Windows.Forms.ToolStripMenuItem reportMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem appointmentTypesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem userSchedulesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem customerInfo;
 	}
 }
 

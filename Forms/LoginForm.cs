@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
@@ -19,165 +20,150 @@ namespace DB_Project_C969
 			InitializeComponent();
 		}
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            submitButton.Enabled = false;
+		private void LoginForm_Load(object sender, EventArgs e)
+		{
+			submitButton.Enabled = false;
 
+		}
 
+		private void submitButton_Click(object sender, EventArgs e)
+		{
 
-          
-            
-        }
+			
+			if (SQL.LoginCheck(usernameTextBox.Text, passwordTextBox.Text))
+			{
+				
+				SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
+				string id = SQL.viewUserId.ToString();
+				if (Alert(id))
+				{
+					MessageBox.Show("Appointment Reminder");
+				}
+				
+				string u = SQL.getUserName(SQL.viewUserId);
+				WriteToTxtFile_Success(u);
 
-        private void submitButton_Click(object sender, EventArgs e)
-        {
+				this.Hide();
+				Dashboard dashboard = new Dashboard();
+				dashboard.ShowDialog();
+			}
+			else
+			{
+				SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
+				string u = SQL.getUserName(SQL.viewUserId);
 
-            if (SQL.LoginCheck(usernameTextBox.Text, passwordTextBox.Text))
-            {
-                SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
-                if (Alert() && Alert_())
-                {
-                    MessageBox.Show("Appointment Reminder", "You have an appointment within 15 minutes");
-                }
-                this.Hide();
-                Dashboard dashboard = new Dashboard();
-                dashboard.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Login Failed");
-                usernameTextBox.Clear();
-                passwordTextBox.Clear();
-                usernameTextBox.Focus();
-            }
-        }
+				// LOGIN FAILURE TO TXT FILE
+				WriteToTxtFile_Failure(u);
+
+				MessageBox.Show("Login Failed");
+				usernameTextBox.Clear();
+				passwordTextBox.Clear();
+				usernameTextBox.Focus();
+			}
+		}
 
 		private void usernameTextBox_TextChanged(object sender, EventArgs e)
 		{
-            if (String.IsNullOrWhiteSpace(usernameTextBox.Text))
-             {
-                submitButton.Enabled = false;
-            }
-            else
-            {
-                submitButton.Enabled = isValid();
-            }
+			if (String.IsNullOrWhiteSpace(usernameTextBox.Text))
+			{
+				submitButton.Enabled = false;
+			}
+			else
+			{
+				submitButton.Enabled = isValid();
+			}
 		}
 
 		private void passwordTextBox_TextChanged(object sender, EventArgs e)
 		{
-            if (String.IsNullOrWhiteSpace(passwordTextBox.Text))
-             {
-                submitButton.Enabled = false;
-            }
-            else
-            {
-                submitButton.Enabled = isValid();
-            }
-        }
+			if (String.IsNullOrWhiteSpace(passwordTextBox.Text))
+			{
+				submitButton.Enabled = false;
+			}
+			else
+			{
+				submitButton.Enabled = isValid();
+			}
+		}
 
-        private bool isValid()
-        {
-            return (!String.IsNullOrWhiteSpace(passwordTextBox.Text)
-                &&
-                   (!String.IsNullOrWhiteSpace(usernameTextBox.Text)));
-        }
+		private bool isValid()
+		{
+			return (!String.IsNullOrWhiteSpace(passwordTextBox.Text)
+				&&
+				   (!String.IsNullOrWhiteSpace(usernameTextBox.Text)));
+		}
 
-        private bool Alert()
-        {
-            try
-            {
-                DateTime now = DateTime.Now;
-                DateTime FifteenMinBeforeApp = now.AddMinutes(-15.0);
-                int uID = SQL.viewUserId;
-                string userId = uID.ToString();
+		private bool Alert(string userId)
+		{
+			try
+			{
+				DateTime start = DateTime.Now.ToUniversalTime();
+				DateTime end = DateTime.Now.AddMinutes(15.0).ToUniversalTime();
+				
+				string query = "SELECT start FROM appointment WHERE userId = @userId AND start BETWEEN @start AND @end";
 
-                string query = "SELECT start FROM appointment WHERE userId = @userId AND start >= @f ";
+				using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
+				{
+					using (MySqlCommand cmd = new MySqlCommand(query, connect))
+					{
+						connect.Open();
 
+						cmd.Parameters.AddWithValue("@userId", userId);
+						cmd.Parameters.AddWithValue("@start", start);
+						cmd.Parameters.AddWithValue("@end", end);
 
-                using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(query, connect))
-                    {
-                        connect.Open();
+						MySqlDataReader rdr = cmd.ExecuteReader();
 
-                        cmd.Parameters.AddWithValue("@userId", userId);
-                        cmd.Parameters.AddWithValue("@f", FifteenMinBeforeApp);
+						if (rdr.HasRows == true)
+						{
 
-                        MySqlDataReader rdr = cmd.ExecuteReader();
+							return true;
+						}
+						else
+						{
 
-                        if (rdr.HasRows == true)
-                        {
+							return false;
+						}
 
-                            return true;
-                        }
-                        else
-                        {
+					}
+				}
 
-                            return false;
-                        }
+			}
+			catch (MySqlException x)
+			{
 
-                    }
-                }
+				MessageBox.Show(x.Message);
+				return false;
+			}
+		}
+		private void WriteToTxtFile_Success(string userName)
+		{
+			string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
 
-            }
-            catch (MySqlException x)
-            {
+			StreamWriter writer = new StreamWriter(filePath, true);
 
-                MessageBox.Show(x.Message);
-                return false;
-            }
-        }
+			DateTime now = DateTime.Now;
 
-        private bool Alert_()
-        {
-            try
-            {
-                DateTime now = DateTime.Now;
-                DateTime FifteenMinBeforeApp = now.AddMinutes(-15.0);
-                int uID = SQL.viewUserId;
-                string userId = uID.ToString();
+			writer.WriteLine(userName + " has logged in at " + now.ToString());
 
-                string query = "SELECT start FROM appointment WHERE userId = @userId AND @f < start ";
+			writer.Close();
 
+		}
+		
+		private void WriteToTxtFile_Failure(string userName)
+		{
+			string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
 
-                using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(query, connect))
-                    {
-                        connect.Open();
+			StreamWriter writer = new StreamWriter(filePath, true);
 
-                        cmd.Parameters.AddWithValue("@userId", userId);
-                        cmd.Parameters.AddWithValue("@f", FifteenMinBeforeApp);
+			DateTime now = DateTime.Now;
 
-                        MySqlDataReader rdr = cmd.ExecuteReader();
+			writer.WriteLine(userName + " Failed Login attempt at " + now.ToString());
 
-                        if (rdr.HasRows == true)
-                        {
+			writer.Close();
 
-                            return true;
-                        }
-                        else
-                        {
+		}
 
-                            return false;
-                        }
-
-                    }
-                }
-
-            }
-            catch (MySqlException x)
-            {
-
-                MessageBox.Show(x.Message);
-                return false;
-            }
-        }
-
-        private void displayAppointments()
-        { 
-        
-        }
-    }
+		
+	}
 }

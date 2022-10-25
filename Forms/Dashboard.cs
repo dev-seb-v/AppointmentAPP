@@ -94,5 +94,12 @@ namespace DB_Project_C969
             this.Hide();
             reports.Show();
         }
+
+		private void customerCountryToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Forms.ExtraReport extra = new Forms.ExtraReport();
+            this.Hide();
+            extra.Show();
+		}
 	}
 }

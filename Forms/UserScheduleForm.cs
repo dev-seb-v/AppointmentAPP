@@ -51,10 +51,7 @@ namespace DB_Project_C969.Forms
 			return schedule;
 		}
 
-		private void AppointmentsPerQuarter()
-		{
-			MessageBox.Show("per Quarter");
-		}
+	
 
 		private void cancelButton_Click(object sender, EventArgs e)
 		{

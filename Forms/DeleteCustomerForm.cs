@@ -61,7 +61,7 @@ namespace DB_Project_C969
             string countryID = countryId.ToString();
 
             // delete customer and associated records on other tables
-
+            SQL.deleteCustomer($"delete from appointment where customerId = {Customer.customerId} ");
             SQL.deleteCustomer($"delete from customer where customerId = {Customer.customerId}");
             SQL.deleteCustomer($"delete from address where addressId = {Customer.customerId}");
             SQL.deleteCustomer($"delete from city where cityId = {cityId}");

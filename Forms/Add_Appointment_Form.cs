@@ -59,7 +59,12 @@ namespace DB_Project_C969
             string name = customerComboBox.Text;
             int customerId = SQL.getCustomerId(name);
             string cusId = customerId.ToString();
-            string insertIntoAppointment = "INSERT INTO appointment (customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdateBy) VALUES (@cusId, @userId , @notNeeded, @notNeeded, @notNeeded, @notNeeded, @type, @notNeeded, @start, @end, curdate(), @cur_user, @cur_user )";
+            string insertIntoAppointment =  @"INSERT INTO appointment 
+                                                (customerId, userId, title, description, location,
+                                                 contact, type, url, start, end, createDate, createdBy, lastUpdateBy) 
+                                            VALUES
+                                                  (@cusId, @userId , @notNeeded, @notNeeded, @notNeeded, @notNeeded,
+                                                   @type, @notNeeded, @start, @end, curdate(), @cur_user, @cur_user )";
 
                     try
                     {

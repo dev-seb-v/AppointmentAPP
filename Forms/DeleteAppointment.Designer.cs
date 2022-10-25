@@ -37,6 +37,9 @@ namespace DB_Project_C969.Forms
 			// 
 			// appointmentDGV
 			// 
+			this.appointmentDGV.AllowUserToAddRows = false;
+			this.appointmentDGV.AllowUserToDeleteRows = false;
+			this.appointmentDGV.AllowUserToOrderColumns = true;
 			this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.appointmentDGV.Location = new System.Drawing.Point(63, 88);
 			this.appointmentDGV.Name = "appointmentDGV";
