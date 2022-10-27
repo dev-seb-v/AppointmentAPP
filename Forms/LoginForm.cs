@@ -29,17 +29,17 @@ namespace DB_Project_C969
 		private void submitButton_Click(object sender, EventArgs e)
 		{
 
-			
+
 			if (SQL.LoginCheck(usernameTextBox.Text, passwordTextBox.Text))
 			{
-				
+
 				SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
 				string id = SQL.viewUserId.ToString();
 				if (Alert(id))
 				{
 					MessageBox.Show("Appointment Reminder");
 				}
-				
+
 				string u = SQL.getUserName(SQL.viewUserId);
 				WriteToTxtFile_Success(u);
 
@@ -92,15 +92,15 @@ namespace DB_Project_C969
 				&&
 				   (!String.IsNullOrWhiteSpace(usernameTextBox.Text)));
 		}
-
+		
 		private bool Alert(string userId)
 		{
 			try
 			{
 				DateTime start = DateTime.Now.ToUniversalTime();
-				DateTime end = DateTime.Now.AddMinutes(15.0).ToUniversalTime();
+				DateTime end = start.AddMinutes(15.0);
 				
-				string query = "SELECT start FROM appointment WHERE userId = @userId AND start BETWEEN @start AND @end";
+				string query = "SELECT start FROM appointment WHERE userId = @userId AND start <= @end  AND start >= @start";
 
 				using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
 				{
@@ -136,34 +136,29 @@ namespace DB_Project_C969
 				return false;
 			}
 		}
-		private void WriteToTxtFile_Success(string userName)
-		{
-			string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
 
-			StreamWriter writer = new StreamWriter(filePath, true);
+		Action<string> WriteToTxtFile_Success = userName =>
+	   {
+		   string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
+		   StreamWriter writer = new StreamWriter(filePath, true);
+		   DateTime now = DateTime.Now;
 
-			DateTime now = DateTime.Now;
+		   writer.WriteLine(userName + " has logged in at " + now.ToString());
 
-			writer.WriteLine(userName + " has logged in at " + now.ToString());
+		   writer.Close();
 
-			writer.Close();
-
-		}
+	   };
 		
-		private void WriteToTxtFile_Failure(string userName)
+		Action<string> WriteToTxtFile_Failure = userName =>
 		{
 			string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
-
 			StreamWriter writer = new StreamWriter(filePath, true);
-
 			DateTime now = DateTime.Now;
 
-			writer.WriteLine(userName + " Failed Login attempt at " + now.ToString());
+			writer.WriteLine(userName + " Failed login attempt at " + now.ToString());
 
 			writer.Close();
-
-		}
-
+		};
 		
 	}
 }

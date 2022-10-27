@@ -155,8 +155,8 @@ namespace DB_Project_C969
         {
             // checks for start of appointment are
             // can't be before 0800 or after 1700 hours
-            DateTime s = start.Value;
-            DateTime e = end.Value;
+            DateTime s = start.Value.ToUniversalTime();
+            DateTime e = end.Value.ToUniversalTime();
 
             DateTime startOfBusiness = new DateTime();
             startOfBusiness = start.Value.Date.AddHours(8.0);
