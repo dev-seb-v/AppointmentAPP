@@ -29,6 +29,7 @@ namespace DB_Project_C969.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentUpdateSubForm));
 			this.label4 = new System.Windows.Forms.Label();
 			this.end = new System.Windows.Forms.DateTimePicker();
 			this.label5 = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@ namespace DB_Project_C969.Forms
 			this.start.Name = "start";
 			this.start.Size = new System.Drawing.Size(368, 25);
 			this.start.TabIndex = 34;
+			this.start.ValueChanged += new System.EventHandler(this.start_ValueChanged);
 			// 
 			// label3
 			// 
@@ -172,8 +174,9 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.userIdComboBox);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.updateBtn);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentUpdateSubForm";
-			this.Text = "AppointmentUpdateSubForm";
+			this.Text = "Update Appointment";
 			this.Load += new System.EventHandler(this.AppointmentUpdateSubForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -29,6 +29,7 @@ namespace DB_Project_C969.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentTypesForms));
 			this.reportText = new System.Windows.Forms.TextBox();
 			this.appointmentBox = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@ namespace DB_Project_C969.Forms
 			this.reportButton = new System.Windows.Forms.Button();
 			this.monthTxtBox = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.cancelBtn = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// reportText
@@ -84,7 +86,7 @@ namespace DB_Project_C969.Forms
 			// reportButton
 			// 
 			this.reportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.reportButton.Location = new System.Drawing.Point(182, 316);
+			this.reportButton.Location = new System.Drawing.Point(324, 318);
 			this.reportButton.Name = "reportButton";
 			this.reportButton.Size = new System.Drawing.Size(214, 32);
 			this.reportButton.TabIndex = 5;
@@ -109,11 +111,23 @@ namespace DB_Project_C969.Forms
 			this.label3.TabIndex = 8;
 			this.label3.Text = "\"please enter a month numbered 1-12\"";
 			// 
+			// cancelBtn
+			// 
+			this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cancelBtn.Location = new System.Drawing.Point(67, 318);
+			this.cancelBtn.Name = "cancelBtn";
+			this.cancelBtn.Size = new System.Drawing.Size(214, 32);
+			this.cancelBtn.TabIndex = 9;
+			this.cancelBtn.Text = "Cancel";
+			this.cancelBtn.UseVisualStyleBackColor = true;
+			this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+			// 
 			// AppointmentTypesForms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(569, 379);
+			this.Controls.Add(this.cancelBtn);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.monthTxtBox);
 			this.Controls.Add(this.reportButton);
@@ -121,8 +135,9 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.appointmentBox);
 			this.Controls.Add(this.reportText);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentTypesForms";
-			this.Text = "AppointmentTypesForms";
+			this.Text = "Appointment Types";
 			this.Load += new System.EventHandler(this.AppointmentTypesForms_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -138,5 +153,6 @@ namespace DB_Project_C969.Forms
 		private System.Windows.Forms.Button reportButton;
 		private System.Windows.Forms.TextBox monthTxtBox;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button cancelBtn;
 	}
 }

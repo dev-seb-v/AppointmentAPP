@@ -159,6 +159,10 @@ namespace DB_Project_C969
 
 			writer.Close();
 		};
-		
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }

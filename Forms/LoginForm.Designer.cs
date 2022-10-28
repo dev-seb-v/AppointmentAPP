@@ -48,6 +48,7 @@ namespace DB_Project_C969
 			this.panel1.Controls.Add(this.usernameTextBox);
 			this.panel1.Controls.Add(this.passwordLabel);
 			this.panel1.Controls.Add(this.usernameLabel);
+			this.panel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Name = "panel1";
 			// 
@@ -56,6 +57,7 @@ namespace DB_Project_C969
 			resources.ApplyResources(this.button2, "button2");
 			this.button2.Name = "button2";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// submitButton
 			// 
@@ -79,11 +81,13 @@ namespace DB_Project_C969
 			// passwordLabel
 			// 
 			resources.ApplyResources(this.passwordLabel, "passwordLabel");
+			this.passwordLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
 			this.passwordLabel.Name = "passwordLabel";
 			// 
 			// usernameLabel
 			// 
 			resources.ApplyResources(this.usernameLabel, "usernameLabel");
+			this.usernameLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
 			this.usernameLabel.Name = "usernameLabel";
 			// 
 			// LoginForm

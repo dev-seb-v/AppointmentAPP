@@ -29,6 +29,7 @@ namespace DB_Project_C969.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserScheduleForm));
 			this.reportText = new System.Windows.Forms.TextBox();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.userIdComboBox = new System.Windows.Forms.ComboBox();
@@ -86,7 +87,7 @@ namespace DB_Project_C969.Forms
 			this.label2.TabIndex = 10;
 			this.label2.Text = "User Schedules";
 			// 
-			// AppointmentTypesReport
+			// UserScheduleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,8 +97,9 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.userIdComboBox);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.reportText);
-			this.Name = "AppointmentTypesReport";
-			this.Text = "Reports";
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Name = "UserScheduleForm";
+			this.Text = "User Schedules";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Reports_FormClosed);
 			this.Load += new System.EventHandler(this.Reports_Load);
 			this.ResumeLayout(false);

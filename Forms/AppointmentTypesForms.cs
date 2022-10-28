@@ -155,5 +155,12 @@ namespace DB_Project_C969.Forms
 				reportButton.Enabled = ValidateTxtBox();
 			}
 		}
+
+		private void cancelBtn_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Dashboard d = new Dashboard();
+			d.Show();
+		}
 	}
 }

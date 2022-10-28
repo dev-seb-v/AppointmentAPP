@@ -29,6 +29,7 @@ namespace DB_Project_C969
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Appointment_Form));
 			this.AddAppBtn = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.userIdComboBox = new System.Windows.Forms.ComboBox();
@@ -174,6 +175,7 @@ namespace DB_Project_C969
 			this.Controls.Add(this.userIdComboBox);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.AddAppBtn);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Add_Appointment_Form";
 			this.Text = "Add Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_Appointment_Form_FormClosed);

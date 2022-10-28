@@ -83,6 +83,7 @@ namespace DB_Project_C969
 			this.exityToolStripMenuItem.Name = "exityToolStripMenuItem";
 			this.exityToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.exityToolStripMenuItem.Text = "Exit";
+			this.exityToolStripMenuItem.Click += new System.EventHandler(this.exityToolStripMenuItem_Click);
 			// 
 			// addToolStripMenuItem
 			// 
@@ -96,14 +97,14 @@ namespace DB_Project_C969
 			// customerToolStripMenuItem
 			// 
 			this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-			this.customerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.customerToolStripMenuItem.Text = "Customer";
 			this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
 			// 
 			// appointmentToolStripMenuItem
 			// 
 			this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
-			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.appointmentToolStripMenuItem.Text = "Appointment";
 			this.appointmentToolStripMenuItem.Click += new System.EventHandler(this.appointmentToolStripMenuItem_Click);
 			// 
@@ -229,7 +230,7 @@ namespace DB_Project_C969
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Dashboard";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "-- DASHBOARD --";
+			this.Text = "Appointment App - Dashboard";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();

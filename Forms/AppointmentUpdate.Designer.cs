@@ -29,6 +29,7 @@ namespace DB_Project_C969.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentUpdate));
 			this.button2 = new System.Windows.Forms.Button();
 			this.updateBtn = new System.Windows.Forms.Button();
 			this.appointmentDGV = new System.Windows.Forms.DataGridView();
@@ -77,8 +78,9 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.appointmentDGV);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.updateBtn);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentUpdate";
-			this.Text = "AppointmentUpdate";
+			this.Text = "Update Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppointmentUpdate_FormClosed);
 			this.Load += new System.EventHandler(this.AppointmentUpdate_Load);
 			((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();

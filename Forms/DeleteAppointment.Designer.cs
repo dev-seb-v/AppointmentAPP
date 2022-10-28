@@ -29,6 +29,7 @@ namespace DB_Project_C969.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteAppointment));
 			this.appointmentDGV = new System.Windows.Forms.DataGridView();
 			this.DeleteBtn = new System.Windows.Forms.Button();
 			this.CancelBtn = new System.Windows.Forms.Button();
@@ -77,8 +78,9 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.CancelBtn);
 			this.Controls.Add(this.DeleteBtn);
 			this.Controls.Add(this.appointmentDGV);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DeleteAppointment";
-			this.Text = "DeleteAppointment";
+			this.Text = "Delete Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DeleteAppointment_FormClosed);
 			this.Load += new System.EventHandler(this.DeleteAppointment_Load);
 			((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();

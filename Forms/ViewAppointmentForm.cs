@@ -147,5 +147,12 @@ namespace DB_Project_C969.Forms
 		{
 			All_Appointments();
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Dashboard d = new Dashboard();
+			d.Show();
+		}
 	}
 }

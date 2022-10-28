@@ -64,12 +64,7 @@ namespace DB_Project_C969.Forms
 					typeTextBox.Focus();
 					return;
 				}
-				if (CheckDate() == true)
-				{
-					MessageBox.Show("Date Cannot Be in the Past");
-					start.Focus();
-					return;
-				}
+				
 				if (outsideBusinessHrs() == false)
 				{
 					MessageBox.Show("Appointments cannot be made outside of business hours");
@@ -116,32 +111,14 @@ namespace DB_Project_C969.Forms
 			}
 		}
 
-		private bool CheckDate()
-		{
-			DateTime s = start.Value;
-			DateTime today = DateTime.Today;
-			int result = DateTime.Compare(s, today);
-			if (result < 0)
-			{
-				return true;
-			}
-			else if (result == 0)
-			{
-				return false;
-			}
-			else
-			{
-				return false;
-			}
-
-		}
+		
 
 		private bool outsideBusinessHrs()
 		{
 			// checks for start of appointment are
 			// can't be before 0800 or after 1700 hours
-			DateTime s = start.Value;
-			DateTime e = end.Value;
+			DateTime s = start.Value.ToUniversalTime();
+			DateTime e = end.Value.ToUniversalTime();
 
 			DateTime startOfBusiness = new DateTime();
 			startOfBusiness = start.Value.Date.AddHours(8.0);
@@ -171,8 +148,8 @@ namespace DB_Project_C969.Forms
             {
                 // <---|--->---| overlap condition
                 string query = "SELECT start from appointment WHERE NOT appointmentId = @apID AND start BETWEEN @userStart AND  @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -212,8 +189,8 @@ namespace DB_Project_C969.Forms
             {
                 // <---|--->---| overlap condition
                 string query = "SELECT end from appointment WHERE NOT appointmentId = @apID AND end > @userEnd AND start BETWEEN @userStart AND @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -253,8 +230,8 @@ namespace DB_Project_C969.Forms
             {
                 // |--<---->--| overlap condition
                 string query = "SELECT start from appointment WHERE NOT appointmentId = @apID AND start < @userStart AND @userStart BETWEEN start  AND @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -293,8 +270,8 @@ namespace DB_Project_C969.Forms
             {
                 // |--<---->--| overlap condition
                 string query = "SELECT end from appointment WHERE NOT appointmentId = @apID AND end > @userStart AND end > @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -333,8 +310,8 @@ namespace DB_Project_C969.Forms
             {
                 //  |--<----|--> overlap condition
                 string query = "SELECT start from appointment WHERE NOT appointmentId = @appID AND start < @userStart AND @userStart BETWEEN start AND end ";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -373,8 +350,8 @@ namespace DB_Project_C969.Forms
             {
                 //  |--<----|--> overlap condition
                 string query = "SELECT end from appointment WHERE NOT appointmentId = @apID AND end BETWEEN @userStart AND  @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -413,8 +390,8 @@ namespace DB_Project_C969.Forms
             {
                 // <--|------|--> overlap condition
                 string query = "SELECT start from appointment WHERE NOT appointmentId = @apID AND start BETWEEN @userStart and end";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -453,8 +430,8 @@ namespace DB_Project_C969.Forms
             {
                 // <--|------|--> overlap condition
                 string query = "SELECT end from appointment WHERE NOT appointmentId = @apID AND end BETWEEN start AND @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string a = SQL.appointmentId.ToString();
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -572,6 +549,11 @@ namespace DB_Project_C969.Forms
                 throw;
             }
             return dt;
+        }
+
+		private void start_ValueChanged(object sender, EventArgs e)
+		{
+            end.Value = start.Value.AddMinutes(30.0);
         }
     }
 }

@@ -83,9 +83,7 @@ namespace DB_Project_C969.Forms
                 MySqlCommand cmd = new MySqlCommand(DeleteAppointment, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Appointment Deleted!");
-                this.Hide();
-                Dashboard d = new Dashboard();
-                d.Show();
+                DeleteAppointment_Load(this, new EventArgs());
 
             }
             catch (MySqlException x)

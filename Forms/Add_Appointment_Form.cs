@@ -244,8 +244,8 @@ namespace DB_Project_C969
 			{
                 // <---|--->---| overlap condition
                 string query = "SELECT start from appointment WHERE userId = @userId AND start BETWEEN @userStart AND  @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -285,8 +285,8 @@ namespace DB_Project_C969
             {
                 // <---|--->---| overlap condition
                 string query = "SELECT end from appointment WHERE userId = @userId AND end > @userEnd AND start BETWEEN @userStart AND @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -326,8 +326,8 @@ namespace DB_Project_C969
             {
                 // |--<---->--| overlap condition
                 string query = "SELECT start from appointment WHERE userId = @userId AND start < @userStart AND @userStart BETWEEN start  AND end";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -366,8 +366,8 @@ namespace DB_Project_C969
             {
                 // |--<---->--| overlap condition
                 string query = "SELECT end from appointment WHERE userId = @userId AND end > @userStart AND end > @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -406,8 +406,8 @@ namespace DB_Project_C969
             {
                 //  |--<----|--> overlap condition
                 string query = "SELECT start from appointment WHERE userId = @userId AND start < @userStart AND @userStart BETWEEN start AND end ";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -446,8 +446,8 @@ namespace DB_Project_C969
             {
                 //  |--<----|--> overlap condition
                 string query = "SELECT end from appointment WHERE userId = @userId AND end BETWEEN @userStart AND  @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -486,8 +486,8 @@ namespace DB_Project_C969
             {
                 // <--|------|--> overlap condition
                 string query = "SELECT start from appointment WHERE userId = @userId AND start BETWEEN @userStart AND end";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {
@@ -526,8 +526,8 @@ namespace DB_Project_C969
             {
                 // <--|------|--> overlap condition
                 string query = "SELECT end from appointment WHERE userId = @userId AND end BETWEEN start AND @userEnd";
-                string s = start.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string e = end.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                string s = start.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
+                string e = end.Value.ToUniversalTime().ToString("yyyy-MM-dd hh:mm:ss");
                 string u = userIdComboBox.Text;
                 using (MySqlConnection connect = new MySqlConnection(SQL.C_String))
                 {

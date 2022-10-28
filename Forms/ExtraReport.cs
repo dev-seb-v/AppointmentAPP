@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DB_Project_C969.Forms
 {
-	public partial class ExtraReport : Form
+	public partial class cancelBtn : Form
 	{
-		public ExtraReport()
+		public cancelBtn()
 		{
 			InitializeComponent();
 		}
@@ -117,6 +117,13 @@ namespace DB_Project_C969.Forms
 			string name = customerComboBox.Text;
 			reportTxtBox.Text =  String.Join(" ", CustomerInfo(id));
 			
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Dashboard d = new Dashboard();
+			d.Show();
 		}
 	}
 }

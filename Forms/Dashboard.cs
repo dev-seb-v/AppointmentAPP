@@ -97,9 +97,14 @@ namespace DB_Project_C969
 
 		private void customerCountryToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-            Forms.ExtraReport extra = new Forms.ExtraReport();
+            Forms.cancelBtn extra = new Forms.cancelBtn();
             this.Hide();
             extra.Show();
+		}
+
+		private void exityToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Application.Exit();
 		}
 	}
 }

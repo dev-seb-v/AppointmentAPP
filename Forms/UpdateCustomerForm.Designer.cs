@@ -29,6 +29,7 @@ namespace DB_Project_C969
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updateCustomerForm));
 			this.custDGV = new System.Windows.Forms.DataGridView();
 			this.updateCustButton = new System.Windows.Forms.Button();
 			this.CancelBtn = new System.Windows.Forms.Button();
@@ -37,6 +38,10 @@ namespace DB_Project_C969
 			// 
 			// custDGV
 			// 
+			this.custDGV.AllowUserToAddRows = false;
+			this.custDGV.AllowUserToDeleteRows = false;
+			this.custDGV.AllowUserToResizeColumns = false;
+			this.custDGV.AllowUserToResizeRows = false;
 			this.custDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.custDGV.Location = new System.Drawing.Point(12, 159);
 			this.custDGV.Name = "custDGV";
@@ -74,6 +79,7 @@ namespace DB_Project_C969
 			this.Controls.Add(this.updateCustButton);
 			this.Controls.Add(this.custDGV);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "updateCustomerForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

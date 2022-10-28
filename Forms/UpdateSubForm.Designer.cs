@@ -29,6 +29,7 @@ namespace DB_Project_C969
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateSubForm));
 			this.countryTextBox = new System.Windows.Forms.TextBox();
 			this.cityTextBox = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
@@ -175,8 +176,9 @@ namespace DB_Project_C969
 			this.Controls.Add(this.nameTextBox);
 			this.Controls.Add(this.addressTextBox);
 			this.Controls.Add(this.phoneTextBox);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UpdateSubForm";
-			this.Text = "UpdateSubForm";
+			this.Text = "Update Customer";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateSubForm_FormClosed);
 			this.Load += new System.EventHandler(this.UpdateSubForm_Load);
 			this.ResumeLayout(false);
