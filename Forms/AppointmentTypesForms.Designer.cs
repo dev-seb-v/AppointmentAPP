@@ -137,6 +137,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.reportText);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentTypesForms";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Appointment Types";
 			this.Load += new System.EventHandler(this.AppointmentTypesForms_Load);
 			this.ResumeLayout(false);

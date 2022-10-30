@@ -177,6 +177,7 @@ namespace DB_Project_C969
 			this.Controls.Add(this.AddAppBtn);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Add_Appointment_Form";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Add Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_Appointment_Form_FormClosed);
 			this.Load += new System.EventHandler(this.Add_Appointment_Form_Load);

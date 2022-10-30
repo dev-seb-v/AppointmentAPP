@@ -80,6 +80,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.updateBtn);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentUpdate";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Update Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppointmentUpdate_FormClosed);
 			this.Load += new System.EventHandler(this.AppointmentUpdate_Load);

@@ -170,6 +170,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ViewAppointmentForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "View Appointments";
 			this.Load += new System.EventHandler(this.ViewAppointmentForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.DGV_UTC)).EndInit();

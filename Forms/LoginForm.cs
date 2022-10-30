@@ -24,6 +24,14 @@ namespace DB_Project_C969
 		{
 			submitButton.Enabled = false;
 
+			CultureInfo ci = CultureInfo.CurrentCulture;
+			CultureInfo ci_Spanish;
+
+			if (!ci.Name.Equals("en-US"))
+			{
+				ci_Spanish = new CultureInfo("es-ES");
+				CultureInfo.CurrentCulture = ci_Spanish;
+			}
 		}
 
 		private void submitButton_Click(object sender, EventArgs e)
@@ -54,8 +62,14 @@ namespace DB_Project_C969
 
 				// LOGIN FAILURE TO TXT FILE
 				WriteToTxtFile_Failure(u);
-
+				if (CultureInfo.CurrentCulture.Name != "en-US")
+				{
+					MessageBox.Show("Error de inicio de sesion");
+				}
+				else
+				{ 
 				MessageBox.Show("Login Failed");
+				}
 				usernameTextBox.Clear();
 				passwordTextBox.Clear();
 				usernameTextBox.Focus();

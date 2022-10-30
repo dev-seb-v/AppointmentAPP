@@ -80,6 +80,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.appointmentDGV);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DeleteAppointment";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Delete Appointment";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DeleteAppointment_FormClosed);
 			this.Load += new System.EventHandler(this.DeleteAppointment_Load);

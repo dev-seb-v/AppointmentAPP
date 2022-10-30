@@ -176,6 +176,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.updateBtn);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentUpdateSubForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Update Appointment";
 			this.Load += new System.EventHandler(this.AppointmentUpdateSubForm_Load);
 			this.ResumeLayout(false);

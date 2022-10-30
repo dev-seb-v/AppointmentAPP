@@ -99,6 +99,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.reportTxtBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "cancelBtn";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Customer Info";
 			this.Load += new System.EventHandler(this.ExtraReport_Load);
 			this.ResumeLayout(false);

@@ -99,6 +99,7 @@ namespace DB_Project_C969.Forms
 			this.Controls.Add(this.reportText);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UserScheduleForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "User Schedules";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Reports_FormClosed);
 			this.Load += new System.EventHandler(this.Reports_Load);

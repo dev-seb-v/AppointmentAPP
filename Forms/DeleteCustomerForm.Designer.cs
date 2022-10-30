@@ -81,6 +81,7 @@ namespace DB_Project_C969
 			this.Controls.Add(this.custDGV);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DeleteCustomerForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Delete Customer ";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DeleteCustomerForm_FormClosed);
 			this.Load += new System.EventHandler(this.DeleteCustomerForm_Load);

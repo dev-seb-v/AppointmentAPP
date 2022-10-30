@@ -178,6 +178,7 @@ namespace DB_Project_C969
 			this.Controls.Add(this.phoneTextBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UpdateSubForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Update Customer";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateSubForm_FormClosed);
 			this.Load += new System.EventHandler(this.UpdateSubForm_Load);

@@ -48,8 +48,6 @@ namespace DB_Project_C969
 			this.appointmentTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.userSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.customerInfo = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,11 +60,10 @@ namespace DB_Project_C969
             this.updateToolStripMenuItem,
             this.deleteToolStripMenuItem,
             this.viewMenuStrip,
-            this.reportMenuStrip,
-            this.helpToolStripMenuItem});
+            this.reportMenuStrip});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(397, 25);
+			this.menuStrip1.Size = new System.Drawing.Size(334, 25);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -81,7 +78,7 @@ namespace DB_Project_C969
 			// exityToolStripMenuItem
 			// 
 			this.exityToolStripMenuItem.Name = "exityToolStripMenuItem";
-			this.exityToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.exityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exityToolStripMenuItem.Text = "Exit";
 			this.exityToolStripMenuItem.Click += new System.EventHandler(this.exityToolStripMenuItem_Click);
 			// 
@@ -97,14 +94,14 @@ namespace DB_Project_C969
 			// customerToolStripMenuItem
 			// 
 			this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-			this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.customerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.customerToolStripMenuItem.Text = "Customer";
 			this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
 			// 
 			// appointmentToolStripMenuItem
 			// 
 			this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
-			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.appointmentToolStripMenuItem.Text = "Appointment";
 			this.appointmentToolStripMenuItem.Click += new System.EventHandler(this.appointmentToolStripMenuItem_Click);
 			// 
@@ -201,20 +198,6 @@ namespace DB_Project_C969
 			this.customerInfo.Text = "Customer Info";
 			this.customerInfo.Click += new System.EventHandler(this.customerCountryToolStripMenuItem_Click);
 			// 
-			// helpToolStripMenuItem
-			// 
-			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
-			this.helpToolStripMenuItem.Text = "Help";
-			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-			this.aboutToolStripMenuItem.Text = "About";
-			// 
 			// Dashboard
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -222,7 +205,7 @@ namespace DB_Project_C969
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(397, 211);
+			this.ClientSize = new System.Drawing.Size(334, 216);
 			this.Controls.Add(this.menuStrip1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -253,8 +236,6 @@ namespace DB_Project_C969
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem appointmentToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem appointmentsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem reportMenuStrip;
