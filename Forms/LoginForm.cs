@@ -15,6 +15,7 @@ namespace DB_Project_C969
 {
 	public partial class LoginForm : Form
 	{
+		public delegate bool funcke(string n);
 		public LoginForm()
 		{
 			InitializeComponent();
@@ -36,43 +37,49 @@ namespace DB_Project_C969
 
 		private void submitButton_Click(object sender, EventArgs e)
 		{
-
-
-			if (SQL.LoginCheck(usernameTextBox.Text, passwordTextBox.Text))
+			if (!UserExists(usernameTextBox.Text))
 			{
-
-				SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
-				string id = SQL.viewUserId.ToString();
-				if (Alert(id))
-				{
-					MessageBox.Show("Appointment Reminder");
-				}
-
-				string u = SQL.getUserName(SQL.viewUserId);
-				WriteToTxtFile_Success(u);
-
-				this.Hide();
-				Dashboard dashboard = new Dashboard();
-				dashboard.ShowDialog();
+				MessageBox.Show("User does not exist.", "Invalid User Input");
 			}
+
 			else
 			{
-				SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
-				string u = SQL.getUserName(SQL.viewUserId);
-
-				// LOGIN FAILURE TO TXT FILE
-				WriteToTxtFile_Failure(u);
-				if (CultureInfo.CurrentCulture.Name != "en-US")
+				if (SQL.LoginCheck(usernameTextBox.Text, passwordTextBox.Text))
 				{
-					MessageBox.Show("Error de inicio de sesion");
+
+					SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
+					string id = SQL.viewUserId.ToString();
+					if (Alert(id))
+					{
+						MessageBox.Show("Appointment Reminder");
+					}
+
+					string u = SQL.getUserName(SQL.viewUserId);
+					WriteToTxtFile_Success(u);
+
+					this.Hide();
+					Dashboard dashboard = new Dashboard();
+					dashboard.ShowDialog();
 				}
 				else
-				{ 
-				MessageBox.Show("Login Failed");
+				{
+					SQL.viewUserId = SQL.getIdFromDB(usernameTextBox.Text);
+					string u = SQL.getUserName(SQL.viewUserId);
+
+					// LOGIN FAILURE TO TXT FILE
+					WriteToTxtFile_Failure(u);
+					if (CultureInfo.CurrentCulture.Name != "en-US")
+					{
+						MessageBox.Show("Error de inicio de sesion");
+					}
+					else
+					{
+						MessageBox.Show("Login Failed");
+					}
+					usernameTextBox.Clear();
+					passwordTextBox.Clear();
+					usernameTextBox.Focus();
 				}
-				usernameTextBox.Clear();
-				passwordTextBox.Clear();
-				usernameTextBox.Focus();
 			}
 		}
 
@@ -150,7 +157,7 @@ namespace DB_Project_C969
 				return false;
 			}
 		}
-
+		// lambda function for successful login to .txt file
 		Action<string> WriteToTxtFile_Success = userName =>
 	   {
 		   string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
@@ -162,7 +169,7 @@ namespace DB_Project_C969
 		   writer.Close();
 
 	   };
-		
+		// lambda function for failed login to .txt file
 		Action<string> WriteToTxtFile_Failure = userName =>
 		{
 			string filePath = @"C:\Users\LabUser\Desktop\AppointmentAPP\log.txt";
@@ -174,6 +181,33 @@ namespace DB_Project_C969
 			writer.Close();
 		};
 
+		// delegate type used to create lambda function to check if User exists
+		funcke UserExists = (x) =>
+		{
+			try
+			{
+				string select = "SELECT userName from user WHERE userName = @user";
+				MySqlConnection connect = new MySqlConnection(SQL.C_String);
+				MySqlCommand cmd = new MySqlCommand(select, connect);
+				cmd.Parameters.AddWithValue("@user", x);
+				MySqlDataReader reader = cmd.ExecuteReader();
+
+				if (reader.HasRows)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+			catch
+			{
+				return false;
+			}
+
+		};
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
