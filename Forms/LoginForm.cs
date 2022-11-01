@@ -15,7 +15,7 @@ namespace DB_Project_C969
 {
 	public partial class LoginForm : Form
 	{
-		public delegate bool funcke(string n);
+		public delegate bool helper(string n);
 		public LoginForm()
 		{
 			InitializeComponent();
@@ -39,7 +39,20 @@ namespace DB_Project_C969
 		{
 			if (!UserExists(usernameTextBox.Text))
 			{
-				MessageBox.Show("User does not exist.", "Invalid User Input");
+				if (CultureInfo.CurrentCulture.Name != "en-US")
+				{
+					MessageBox.Show("Usario no existe.", "error");
+					usernameTextBox.Clear();
+					passwordTextBox.Clear();
+					usernameTextBox.Focus();
+				}
+				else
+				{
+					MessageBox.Show("The user doesn't exist");
+					usernameTextBox.Clear();
+					passwordTextBox.Clear();
+					usernameTextBox.Focus();
+				}
 			}
 
 			else
@@ -181,14 +194,15 @@ namespace DB_Project_C969
 			writer.Close();
 		};
 
-		// delegate type used to create lambda function to check if User exists
-		funcke UserExists = (x) =>
+		// delegate "helper" type used to create lambda function to check if User exists
+		helper UserExists = (x) =>
 		{
 			try
 			{
-				string select = "SELECT userName from user WHERE userName = @user";
+				string select = "SELECT * FROM user WHERE userName = @user";
 				MySqlConnection connect = new MySqlConnection(SQL.C_String);
 				MySqlCommand cmd = new MySqlCommand(select, connect);
+				connect.Open();
 				cmd.Parameters.AddWithValue("@user", x);
 				MySqlDataReader reader = cmd.ExecuteReader();
 

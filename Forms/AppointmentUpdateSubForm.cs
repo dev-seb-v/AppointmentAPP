@@ -555,5 +555,12 @@ namespace DB_Project_C969.Forms
 		{
             end.Value = start.Value.AddMinutes(30.0);
         }
-    }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            this.Hide();
+            Forms.AppointmentUpdate update = new AppointmentUpdate();
+            update.Show();
+		}
+	}
 }
