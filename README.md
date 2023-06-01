@@ -1,2 +1,2 @@
 # AppointmentAPP
-Will need a mySql database running to use the application. 
+Will need a mySQL database with seeded data to get this working. 
